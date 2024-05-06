@@ -3,6 +3,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { getArticlesByArticleId, getArticlesByUserId, getArticlesByTitle, getArticles, postArticle } from './ArticleApi';
 import { getUserByAuthorName, getUserByUserId, getUserByUserName, createUser, getUsers } from './UserApi';
+import { expect } from 'chai'; 
 
 const articles = [
   {
@@ -82,13 +83,11 @@ const users = [
 
 export default suite('API Tests', test => {
   let mock = new MockAdapter(axios);
-
   test('should fetch articles', async () => {
-    let mock = new MockAdapter(axios);
     mock.onGet('https://jsonplaceholder.typicode.com/posts').reply(200, articles);
 
     const response = await getArticles();
-    test.expect(response).toEqual(articles);
+    expect(response).to.deep.equal(articles);
   });
 
   test('should fetch articles by title', async () => {
@@ -96,14 +95,14 @@ export default suite('API Tests', test => {
     mock.onGet(`https://jsonplaceholder.typicode.com/posts?title=${articles[0].title}`).reply(200, articles[0]);
 
     const response = await getArticlesByTitle(title);
-    test.expect(response).toEqual(articles[0]);
+    expect(response).to.deep.equal(articles[0]);
   });
 
   test('should fetch articles by user ID', async () => {
     mock.onGet(`https://jsonplaceholder.typicode.com/posts?userId=${users[0].id}`).reply(200, articles[1]);
 
     const response = await getArticlesByUserId(users[0].id);
-    test.expect(response).toEqual(articles[1]);
+    expect(response).to.deep.equal(articles[1]);
   });
 
   test('should fetch article by article ID', async () => {
@@ -111,7 +110,7 @@ export default suite('API Tests', test => {
     mock.onGet(`https://jsonplaceholder.typicode.com/posts/${articleId}`).reply(200, articles[0]);
 
     const response = await getArticlesByArticleId(articleId);
-    test.expect(response).toEqual(articles[0]);
+    expect(response).to.deep.equal(articles[0]);
   });
 
   test('should create a new article', async () => {
@@ -120,7 +119,7 @@ export default suite('API Tests', test => {
     mock.onPost('https://jsonplaceholder.typicode.com/posts').reply(201, createdArticle);
 
     const response = await postArticle(articleData);
-    test.expect(response).toEqual(createdArticle);
+    expect(response).to.deep.equal(createdArticle);
   });
 
   test('should fetch user by author name', async () => {
@@ -128,7 +127,7 @@ export default suite('API Tests', test => {
     mock.onGet(`https://jsonplaceholder.typicode.com/users?name=${authorName}`).reply(200, [users[0]]);
 
     const response = await getUserByAuthorName(authorName);
-    test.expect(response).toEqual([users[0]]);
+    expect(response).to.deep.equal([users[0]]);
   });
 
   test('should fetch user by username', async () => {
@@ -136,7 +135,7 @@ export default suite('API Tests', test => {
     mock.onGet(`https://jsonplaceholder.typicode.com/users?username=${username}`).reply(200, [users[1]]);
 
     const response = await getUserByUserName(username);
-    test.expect(response).toEqual([users[1]]);
+    expect(response).to.deep.equal([users[1]]);
   });
 
   test('should fetch user by user ID', async () => {
@@ -144,7 +143,7 @@ export default suite('API Tests', test => {
     mock.onGet(`https://jsonplaceholder.typicode.com/users/${userId}`).reply(200, users[0]);
 
     const response = await getUserByUserId(userId);
-    test.expect(response).toEqual(users[0]);
+    expect(response).to.deep.equal(users[0]);
   });
 
   test('should create a new user', async () => {
@@ -169,13 +168,13 @@ export default suite('API Tests', test => {
     mock.onPost('https://jsonplaceholder.typicode.com/users').reply(201, createdUser);
 
     const response = await createUser(userData);
-    test.expect(response).toEqual(createdUser);
+    expect(response).to.deep.equal(createdUser);
   });
 
   test('should fetch all users', async () => {
     mock.onGet('https://jsonplaceholder.typicode.com/users').reply(200, users);
 
     const response = await getUsers();
-    test.expect(response).toEqual(users);
+    expect(response).to.deep.equal(users);
   });
 });
