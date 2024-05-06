@@ -1,0 +1,15 @@
+.cardBtn{
+    color: #fff;
+    height: 30px;
+    min-width: 40%;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #162836;
+    border-radius: 8px;
+}
+
+.cardBtn:hover {
+    background-color: #CF7650;
+    border-radius: 10px;
+    border: none;
+}

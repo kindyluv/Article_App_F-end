@@ -1,0 +1,15 @@
+.modalBtn{
+    color: #fff;
+    height: 40px;
+    min-width: 20%;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #162836;
+    border-radius: 8px;
+}
+
+.modalBtn:hover {
+    background-color: #CF7650;
+    border-radius: 10px;
+    border: none;
+}

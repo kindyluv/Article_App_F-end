@@ -1,0 +1,60 @@
+.loginBtn{
+    color: #162836;
+    height: 40px;
+    min-width: 30%;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #fff;
+    border-radius: 4px;
+
+    @media (max-width: 600px) {
+        min-width: 45%;
+    }
+
+    @media (min-width: 959px) and (max-width: 1200px) {
+        max-width: 20%;
+        font-size: 14px;
+    }
+}
+
+.signUpBtn{
+    color: #fff;
+    height: 40px;
+    min-width: 30%;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #162836;
+    border-radius: 4px;
+
+    @media (max-width: 600px) {
+        min-width: 45%;
+    }
+
+    @media (min-width: 959px) and (max-width: 1200px) {
+        max-width: 20%;
+        font-size: 14px;
+    }
+}
+
+.signUpBtn:hover{
+    color: #162836;
+    background-color: #fff;
+}
+
+.loginBtn:hover{
+    color: #fff;
+    background-color: #162836;
+}
+
+.menuBtn:hover{
+    background-color: #162836;
+    color: #CF7650;
+}
+
+.menuBtn{
+    font-size: 18px;
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+    margin-right: 40px;
+}

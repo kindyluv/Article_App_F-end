@@ -1,0 +1,35 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "prettier"
+    ],
+    "rules": {
+      "react/jsx-uses-vars": 1,
+      "react/jsx-uses-react": 1,
+      "semi": ["error", "always"],
+      "quotes": ["error", "double"],
+      "no-console": "warn",
+      "no-undef": "off",
+      "no-var": "error",
+      "react/no-unsafe": "error",
+      "react/prop-types": "off"
+    }
+  }
+  
