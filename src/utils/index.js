@@ -15,7 +15,6 @@ export const handleSearch = async (searchQuery, originalArticles, setArticles) =
         return;
     }
 
-    // This check is used to check the articles in the application state management
     const filteredArticles = originalArticles.filter(
         (article) =>
             article?.title.includes(searchQuery) ||
@@ -29,7 +28,14 @@ export const handleSearch = async (searchQuery, originalArticles, setArticles) =
         return;
     }
 
-    // If the article is not found locally it makes the API calls
+    await handleArticlesByUserId(searchQuery, setArticles);
+    await handleArticlesByPostId(searchQuery, setArticles);
+    await handleArticlesByTitle(searchQuery, setArticles);
+    await handleUserByUsername(searchQuery, setArticles);
+    await handleUserByAuthorName(searchQuery, setArticles);
+};
+
+const handleArticlesByUserId = async (searchQuery, setArticles) => {
     if (!isNaN(searchQuery)) {
         const userId = parseInt(searchQuery);
         const articlesByUserId = await getArticlesByUserId(userId);
@@ -38,10 +44,12 @@ export const handleSearch = async (searchQuery, originalArticles, setArticles) =
             const users = await getUserByUserId(articlesByUserId[0]?.userId);
             const processArticle = processArticles(articlesByUserId, users);
             setArticles(processArticle);
-            return;
+            throw new Error('Article found by user id');
         }
     }
+};
 
+const handleArticlesByPostId = async (searchQuery, setArticles) => {
     if (!isNaN(searchQuery)) {
         const postId = parseInt(searchQuery);
         const articlesByPostId = await getArticlesByArticleId(postId);
@@ -50,34 +58,41 @@ export const handleSearch = async (searchQuery, originalArticles, setArticles) =
             const users = await getUserByUserId(articlesByPostId[0]?.userId);
             const processArticle = processArticles(articlesByPostId, users);
             setArticles(processArticle);
-            return;
+            throw new Error('Article found by post id');
         }
     }
+};
 
+const handleArticlesByTitle = async (searchQuery, setArticles) => {
     const articlesByTitle = await getArticlesByTitle(searchQuery);
 
     if (articlesByTitle.length > 0) {
         const users = await getUserByUserId(articlesByTitle[0]?.userId);
         const processArticle = processArticles(articlesByTitle, users);
         setArticles(processArticle);
-        setArticles();
-        return;
+        throw new Error('Article found by title');
     }
+};
 
+const handleUserByUsername = async (searchQuery, setArticles) => {
     const userByUsername = await getUserByUserName(searchQuery);
 
     if (userByUsername) {
         const article = await getArticlesByUserId(userByUsername[0]?.userId);
         const processArticle = processArticles(article, userByUsername);
         setArticles(processArticle);
+        throw new Error('User found by username');
     }
+};
 
+const handleUserByAuthorName = async (searchQuery, setArticles) => {
     const userByAuthorName = await getUserByAuthorName(searchQuery);
 
     if (userByAuthorName) {
         const article = await getArticlesByUserId(userByAuthorName[0]?.userId);
         const processArticle = processArticles(article, userByAuthorName);
         setArticles(processArticle);
+        throw new Error('User found by author name');
     } else {
         const errorMessage = `No article found with this name ${searchQuery}`;
         alert(errorMessage);

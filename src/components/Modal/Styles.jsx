@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const Backdrop = styled.div`
   width: 40%;
   background-color: #fff;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media (min-width: 769px) and (max-width: 960px) {
+    width: 60%;
+  }
 `;
 
 export const Dialog = styled.div`

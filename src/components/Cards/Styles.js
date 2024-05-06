@@ -37,6 +37,10 @@ export const Container = styled.div`
 
 export const FlexContainer = styled.div`
   display: flex;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 `;
 
 export const LogoImage = styled.img`

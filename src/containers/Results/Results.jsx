@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ArticleCard from "../../components/Cards";
 import BigLogo from '../../assets/BigLogo.png';
 import SearchBar from "../../components/SearchBar";
-import { MainContainer, HeaderContainer, LogoContainer, LogoImage, TitleContainer, Title, ResultsContainer, SearchContainer, ArticleWrapper, ArticlesContainer } from "./Styles";
+import { MainContainer, HeaderContainer, LogoContainer, LogoImage, TitleContainer, Title, ResultsContainer, SearchContainer, ArticlesContainer } from "./Styles";
 import { handleSearch } from "../../utils";
 
 const Results = ({articles, setArticles}) => {
