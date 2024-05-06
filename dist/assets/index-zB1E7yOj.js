@@ -451,7 +451,7 @@ Error generating stack: `+i.message+`
   justify-content: space-between;
   align-items: center;
   max-height: 20%;
-  max-width: 100%;
+  min-width: 100vw;
   padding: 40px 0px;
 `,Ml=O.div`
   color: #fff;
