@@ -2,11 +2,10 @@ import { getArticlesByArticleId, getArticlesByUserId, getArticlesByTitle } from 
 import { getUserByAuthorName, getUserByUserId, getUserByUserName } from "../api/UserApi";
 
 export const truncateWords = (text, limit) => {
-    const words = text.split(' ');
-    if (words.length <= limit) {
+    if (text.length <= limit) {
         return text;
     }
-    return words.slice(0, limit).join(' ') + '...';
+    return text.slice(0, limit) + '...';
 };
 
 export const handleSearch = async (searchQuery, originalArticles, setArticles) => {

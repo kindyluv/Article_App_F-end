@@ -32,15 +32,18 @@ export const TitleContainer = styled.div`
     max-width: 50%;
     align-items: center;
     display: flex;
+    width: 100%;
+    justify-content: center;
 
     @media(max-width: 768px){
         display: none;
 `;
 
 export const Title = styled.p`
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 700;
     color: #fff;
+    text-align: center;
 `;
 
 export const ResultsContainer = styled.div`
@@ -51,7 +54,12 @@ export const ResultsContainer = styled.div`
 export const SearchContainer = styled.div`
     display: flex;
     justify-content: flex-end;
-    margin-right: 20px;
+    margin-left: 20px;
+    max-width: 19%;
+
+    @media(max-width: 768px){
+        max-width: 45%;
+    }
 `;
 
 export const ArticlesContainer = styled.div`

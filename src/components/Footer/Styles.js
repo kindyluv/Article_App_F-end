@@ -66,3 +66,21 @@ export const NavItem = styled.li`
         color: #cf7650;
     }
 `;
+
+export const Section = styled.div`
+  flex: 1;
+  padding: 10px;
+`;
+
+export const FooterLink = styled.a`
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const FooterText = styled.p`
+    color: white;
+`;

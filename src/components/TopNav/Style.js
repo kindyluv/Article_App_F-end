@@ -21,7 +21,7 @@ export const NavItemContainer = styled.ul`
   margin: 0;
   display: flex;
   justify-content: space-between;
-  max-width: 35%;
+  max-width: 40%;
   align-items: center;
 
   @media (max-width: 960px) {
@@ -65,7 +65,7 @@ export const NavItem = styled.li`
 export const LogoContainer = styled.div`
     max-width: 10%;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 20px;
 
     @media (max-width: 1440px) {
         max-width: 10%;
@@ -83,10 +83,10 @@ export const LogoImage = styled.img`
 `;
 
 export const SearchContainer = styled.div`
-    width: 30%;
+    width: 25%;
     min-height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 
     @media (max-width: 1440px) {
@@ -95,7 +95,7 @@ export const SearchContainer = styled.div`
 `;
 
 export const ActionContainer = styled.div`
-    min-width: 25%;
+    min-width: 20%;
     display: flex;
     justify-content: flex-end;
     align-items: center;

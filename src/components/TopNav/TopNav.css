@@ -1,11 +1,17 @@
 .loginBtn{
     color: #162836;
+    background-color: #fff;
+}
+
+
+.signUpBtn, .loginBtn{
     height: 40px;
     min-width: 30%;
     font-size: 16px;
     font-weight: 700;
-    background-color: #fff;
     border-radius: 4px;
+    border: none;
+    box-shadow: 1px 1px 1px 1px;
 
     @media (max-width: 600px) {
         min-width: 45%;
@@ -19,21 +25,9 @@
 
 .signUpBtn{
     color: #fff;
-    height: 40px;
-    min-width: 30%;
-    font-size: 16px;
-    font-weight: 700;
     background-color: #162836;
     border-radius: 4px;
-
-    @media (max-width: 600px) {
-        min-width: 45%;
-    }
-
-    @media (min-width: 959px) and (max-width: 1200px) {
-        max-width: 20%;
-        font-size: 14px;
-    }
+    border: none;
 }
 
 .signUpBtn:hover{

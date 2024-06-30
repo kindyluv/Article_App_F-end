@@ -14,6 +14,7 @@ const Results = ({articles, setArticles}) => {
   }, [articles]);
 
   useEffect(() => {
+    console.log("searchQuery --> ", searchQuery);
     handleSearch(searchQuery, originalArticles, setArticles);
   },[searchQuery])
   
@@ -24,7 +25,7 @@ const Results = ({articles, setArticles}) => {
           <LogoImage src={BigLogo} alt="BigLogo" />
         </LogoContainer>
         <TitleContainer>
-          <Title>Article App Article App Article App Article App Article App Article App</Title>
+          <Title>Article Is Life</Title>
         </TitleContainer>
       </HeaderContainer>
       <ResultsContainer>
@@ -33,7 +34,9 @@ const Results = ({articles, setArticles}) => {
         </SearchContainer>
         <ArticlesContainer>
           {Array.isArray(articles) && articles?.map((value,i) => (
-            <ArticleCard title={value?.title} body={value?.body} name={value?.user?.name} phoneNumber={value?.user?.phone} email={value?.user?.email} website={value?.user?.website} />
+            <div key={i}>
+              <ArticleCard title={value?.title} body={value?.body} name={value?.user?.name} phoneNumber={value?.user?.phone} email={value?.user?.email} website={value?.user?.website} />
+            </div>
           ))}
         </ArticlesContainer>
       </ResultsContainer>

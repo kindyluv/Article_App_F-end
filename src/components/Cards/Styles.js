@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import TextTruncate from 'react-text-truncate';
 
 export const CardContainer = styled.div`
   max-width: 100%;
-  box-shadow: 0px 0px 5px;
+  box-shadow: 0 0 0 2px #E3E3E3;
   padding: 12px;
   border-radius: 8px;
   background-color: #fff;
@@ -26,7 +27,7 @@ export const Title = styled.p`
   font-size: 18px;
 `;
 
-export const Description = styled.p`
+export const Description = styled(TextTruncate)`
   color: #1E1E1E;
 `;
 

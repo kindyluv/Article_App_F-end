@@ -2,12 +2,27 @@ import React, { useState } from 'react';
 import Button from '../Button';
 import ArticleImage from '../../assets/SmallLogo.png';
 import './ArticleCard.css';
-import { CardContainer, SingleArticleTitle, DetailItem, Details, Image, TextContainer, Title, Description, Container, FlexContainer, DetailsContainer, Content, LogoImage, Body } from './Styles';
+import {
+    CardContainer,
+    SingleArticleTitle,
+    DetailItem,
+    Details,
+    Image,
+    TextContainer,
+    Title,
+    Description,
+    Container,
+    FlexContainer,
+    DetailsContainer,
+    Content,
+    LogoImage,
+    Body,
+} from './Styles';
 import BigLogo from '../../assets/BigLogo.png';
 import Modal from '../Modal';
 import { truncateWords } from '../../utils';
 
-const ArticleCard = ({title, body, name, phoneNumber, email, website }) => {
+const ArticleCard = ({ title, body, name, phoneNumber, email, website }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -22,8 +37,9 @@ const ArticleCard = ({title, body, name, phoneNumber, email, website }) => {
             <CardContainer>
                 <Image src={ArticleImage} alt="Article Image" />
                 <TextContainer>
-                    <Title>{truncateWords(title, 2)}</Title>
-                    <Description>{truncateWords(body, 10)}</Description>
+                    <Title>{truncateWords(title, 20)}</Title>
+                    <Title line={0} element="p" truncateText="..." text={title} />
+                    <Description line={3} element="p" truncateText="..." text={body} o />
                     <Button className={'cardBtn'} type="button" onClick={handleOpenModal} label="Read Now" />
                 </TextContainer>
             </CardContainer>

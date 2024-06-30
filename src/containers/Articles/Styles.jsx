@@ -43,4 +43,8 @@ export const Textarea = styled.textarea`
         border: none;
         outline: none;
     }
+
+    @media (max-width: 992px) {
+        min-width: calc(50%);
+    }
 `;
