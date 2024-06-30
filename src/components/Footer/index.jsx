@@ -1,14 +1,8 @@
 import React from 'react';
-import { FooterContainer, Address, SocialMedia, NavItem, NavItemContainer, FeedbackForm, Section, FooterLink, FooterText } from './Styles';
-import Input from '../Input';
-import Button from '../Button';
+import { FooterContainer, Address, Section, FooterLink, FooterText } from './Styles';
 import './Footer.css';
 
 const Footer = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <FooterContainer>
       <Section>

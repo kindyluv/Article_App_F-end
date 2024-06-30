@@ -130,6 +130,7 @@ const Articles = ({userIds, setArticles}) => {
                 />
                 {validationErrors.website && <Warning>{validationErrors.website}</Warning>}
                 <Textarea
+                    className={'articleInput'}
                     value={articleData.content}
                     onChange={(e) => setArticleData({ ...articleData, content: e.target.value })}
                     placeholder="Content"

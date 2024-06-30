@@ -12,6 +12,10 @@ export const Text = styled.p`
     font-size: 30px;
     font-weight: 700;
     margin-top: 10%;
+
+    @media(max-width: 768px){
+        margin-top: 15%;
+    }
 `;
 
 export const Form = styled.div`
@@ -44,7 +48,11 @@ export const Textarea = styled.textarea`
         outline: none;
     }
 
-    @media (max-width: 992px) {
+    @media (min-width: 601px) and (max-width: 992px) {
         min-width: calc(50%);
+    }
+
+    @media (max-width: 600px) {
+        min-width: calc(70%);
     }
 `;

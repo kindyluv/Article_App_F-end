@@ -57,6 +57,8 @@ const TopNav = ({ articles, setArticles }) => {
         handleSearch(searchQuery, originalArticles, setArticles);
     }, [searchQuery]);
 
+    const pathName = window.location.pathname !== '/post-article';
+
     return (
         <>
             <NavContainer scroll={scroll}>
@@ -78,7 +80,13 @@ const TopNav = ({ articles, setArticles }) => {
                     </NavItem>
                 </NavItemContainer>
                 <SearchContainer>
-                    <SearchBar showButton={true} setSearchString={setSearchQuery} placeholder={'Search article.....'} />
+                    {pathName && (
+                        <SearchBar
+                            showButton={true}
+                            setSearchString={setSearchQuery}
+                            placeholder={'Search article.....'}
+                        />
+                    )}
                 </SearchContainer>
                 <ActionContainer>
                     <Button className="loginBtn" type="button" onClick={handleClick} label="Login" />
@@ -91,7 +99,7 @@ const TopNav = ({ articles, setArticles }) => {
                     <LogoImage src={SmallLogo} alt="SmallLogo" />
                 </LogoContainer>
                 <MenuContainer scroll={scroll}>
-                    <Button className={'menuBtn'} type="button" onClick={toggleModal} label="☰" />
+                    <Button className="menuBtn" type="button" onClick={toggleModal} label="☰" />
                 </MenuContainer>
                 <Modal isOpen={isModalOpen}>
                     <ModalContent>
